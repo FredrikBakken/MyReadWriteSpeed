@@ -13,8 +13,10 @@ Download and extract the [latest pre-built release](https://github.com/FredrikBa
 ### Usage
 
 1. Select the drive you want to test from the list.
-2. Insert the size of the temporary file (IMPORTANT: Make sure your drive has enough space for this file).
+2. Insert the size of the temporary file (Recommendation: Set the file size to 1000 or higher).
 3. Start the tool by clicking the button.
+
+IMPORTANT: Make sure your drive has enough space for this file.
 
 #### Run Example
 ![alt tag](http://fredrikbakken.no/MyRWTool_Example.png)
