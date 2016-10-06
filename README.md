@@ -2,6 +2,8 @@
 
 MyRWTool is a open-source software tool developed in Java to easily test the read/write throughput of your local drives. The software is developed with an easily operated GUI designed in JavaFx.
 
+![alt tag](http://fredrikbakken.no/MyRWTool.png)
+
 ### Installation
 
 MyRWTool requires [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) to run.
