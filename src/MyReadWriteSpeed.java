@@ -28,10 +28,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class MyReadWriteSpeed extends Application {
-	// Thanks & Credits
-	private static final String THANKS = "Thank you for using this free open-source tool.";
-	private static final String THANKS2 = "More information; www.fredrikbakken.com/MyRWTool";
-
 	private static String location = "";
 	private static int nMBs = 0;
 
