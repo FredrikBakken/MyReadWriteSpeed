@@ -16,6 +16,9 @@ Download and extract the [latest pre-built release](https://github.com/FredrikBa
 2. Insert the size of the temporary file (IMPORTANT: Make sure your drive has enough space for this file).
 3. Start the tool by clicking the button.
 
+#### Run Example
+![alt tag](http://fredrikbakken.no/MyRWTool_Example.png)
+
 ### Contact or Questions?
 
 I can be contacted on [Discord](https://discord.gg/e3PgF4f).
