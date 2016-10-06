@@ -177,7 +177,7 @@ public class MyReadWriteSpeed extends Application {
 		// Actual Read/Write Test
 		try {
 			// Create a temporary file
-			File file = File.createTempFile(location, "test.txt");
+			File file = new File(location + "\\MyRWToolTempFile.txt");
 			PrintWriter pw = new PrintWriter(new FileWriter(file));
 
 			// Start WRITE test
@@ -224,7 +224,7 @@ public class MyReadWriteSpeed extends Application {
 			readRes3.setText("Read speed: " + readResult3 + "MB/s");
 			
 			// Delete temporary folder
-			deleteFolder();
+			deleteFileAndFolder();
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -233,8 +233,11 @@ public class MyReadWriteSpeed extends Application {
 	}
 	
 	// Method for deleting the temporary folder
-	private static void deleteFolder() throws IOException {
+	private static void deleteFileAndFolder() throws IOException {
+		File file = new File(location + "\\MyRWToolTempFile.txt");
 		File directory = new File(location);
+		
+		file.delete();
 		
 		if(directory.isDirectory()) {
 			if(directory.list().length == 0) {
