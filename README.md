@@ -25,6 +25,4 @@ I can be contacted on [Discord](https://discord.gg/e3PgF4f).
 
 License
 ----
-MIT
-
-**Free Software, Hell Yeah!**
+MIT - **Free Software, Hell Yeah!**
