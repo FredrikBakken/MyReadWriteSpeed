@@ -2,7 +2,7 @@
 
 ### Current Status:
 
-Not recommended to use. Found issues related to using up the space in the C:/ drive during runs.
+** NOT RECOMMENDED TO USE.** Found issues related to using up the space in the C:/ drive during runs.
 
 ![alt tag](http://fredrikbakken.no/MyRWTool.png)
 
