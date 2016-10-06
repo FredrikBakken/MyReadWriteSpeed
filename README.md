@@ -6,7 +6,7 @@ MyRWTool is a open-source software tool developed in Java to easily test the rea
 
 ### Requirements
 
-MyRWTool requires [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) to run.
+MyRWTool requires [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) to be pre-configured on target computer.
 
 ### Installation
 
