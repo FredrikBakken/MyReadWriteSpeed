@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -45,6 +46,7 @@ public class MyReadWriteSpeed extends Application {
 
 	ListView<String> listView;
 
+	private static Label loading;
 	private static Label writeRes1;
 	private static Label writeRes2;
 	private static Label writeRes3;
@@ -72,8 +74,10 @@ public class MyReadWriteSpeed extends Application {
 		TextField MBs = new TextField();
 		MBs.setPromptText("(WARNING: Must be a number to work!)");
 		
-		Button start = new Button("Start the test!");
+		Button start = new Button("START SPEED TEST");
 		start.setOnAction(e -> buttonClicked(MBs));
+		
+		Label empty = new Label("");
 		
 		Text select = new Text("Select a Drive:");
 		Text MBText = new Text("Inset file size in MB:");
@@ -85,6 +89,7 @@ public class MyReadWriteSpeed extends Application {
 		readResults.setFont(Font.font(null, FontWeight.BOLD, 12));
 		
 		// Define global elements
+		loading = new Label("");
 		writeRes1 = new Label("Time: ");
 		writeRes2 = new Label("File size: ");
 		writeRes3 = new Label("Write speed: ");
@@ -114,7 +119,7 @@ public class MyReadWriteSpeed extends Application {
 		// Right layout
 		VBox layout2 = new VBox(10);
 		layout2.setPadding(new Insets(20, 20, 20, 20));
-		layout2.getChildren().addAll(writeResults, writeRes1, writeRes2, writeRes3, readResults, readRes1, readRes2,
+		layout2.getChildren().addAll(loading, writeResults, writeRes1, writeRes2, writeRes3, empty, readResults, readRes1, readRes2,
 				readRes3);
 
 		border.setLeft(layout);
@@ -179,7 +184,7 @@ public class MyReadWriteSpeed extends Application {
 			// Create a temporary file
 			File file = new File(location + "\\MyRWToolTempFile.txt");
 			PrintWriter pw = new PrintWriter(new FileWriter(file));
-
+			
 			// Start WRITE test
 			start = System.nanoTime();
 			for (int i = 0; i < nMBs * 1024; i++)
@@ -222,6 +227,8 @@ public class MyReadWriteSpeed extends Application {
 			readRes1.setText("Time: " + readResult1 + "s");
 			readRes2.setText("File size: " + readResult2 + "MB");
 			readRes3.setText("Read speed: " + readResult3 + "MB/s");
+			
+			loading.setText("Speed test completed!");
 			
 			// Delete temporary folder
 			deleteFileAndFolder();
