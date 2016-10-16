@@ -9,8 +9,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-import javax.swing.filechooser.FileSystemView;
-
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,7 +26,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class MyReadWriteSpeed extends Application {
-	private static String location = "";
+	public static String location = "";
 	private static int nMBs = 0;
 
 	// Time testing values
@@ -38,10 +36,6 @@ public class MyReadWriteSpeed extends Application {
 
 	// Placeholder for elements
 	private static char[] array = new char[1024];
-
-	// Directory variables
-	private static File[] paths;
-	private static FileSystemView fsv;
 
 	ListView<String> listView;
 
@@ -55,9 +49,7 @@ public class MyReadWriteSpeed extends Application {
 
 	// Main method
 	public static void main(String[] args) {
-		MyReadWriteSpeed MyRWSpeed = new MyReadWriteSpeed();
-
-		MyRWSpeed.findDirectories();
+		Directories.findDirectories();
 
 		launch(args);
 	}
@@ -102,7 +94,7 @@ public class MyReadWriteSpeed extends Application {
 		listView.setPrefHeight(100);
 
 		// Add values to directory list
-		for (File path : paths) {
+		for (File path : Directories.paths) {
 			String temp = path.getPath();
 			dir.add(temp);
 		}
@@ -230,35 +222,12 @@ public class MyReadWriteSpeed extends Application {
 			loading.setText("Speed test completed!");
 			
 			// Delete temporary folder
-			deleteFileAndFolder();
+			Directories.deleteFileAndFolder();
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-	}
-	
-	// Method for deleting the temporary folder
-	private static void deleteFileAndFolder() throws IOException {
-		File file = new File(location + "\\MyRWToolTempFile.txt");
-		File directory = new File(location);
-		
-		file.delete();
-		
-		if(directory.isDirectory()) {
-			if(directory.list().length == 0) {
-				directory.delete();
-			}
-		}
-		
-	}
-
-	// Search for all directories
-	private void findDirectories() {
-		fsv = FileSystemView.getFileSystemView();
-
-		// Return path names for files and directory
-		paths = File.listRoots();
 	}
 
 }
