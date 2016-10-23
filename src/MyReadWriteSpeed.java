@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -29,17 +30,8 @@ public class MyReadWriteSpeed extends Application {
 	public static String location = "";
 	private static int nMBs = 0;
 
-	// Time testing values
-	private static long start = 0;
-	private static long stop = 0;
-	private static long time = 0;
-
-	// Placeholder for elements
-	private static char[] array = new char[1024];
-
 	ListView<String> listView;
 
-	private static Label loading;
 	private static Label writeRes1;
 	private static Label writeRes2;
 	private static Label writeRes3;
@@ -80,7 +72,6 @@ public class MyReadWriteSpeed extends Application {
 		readResults.setFont(Font.font(null, FontWeight.BOLD, 12));
 		
 		// Define global elements
-		loading = new Label("");
 		writeRes1 = new Label("Time: ");
 		writeRes2 = new Label("File size: ");
 		writeRes3 = new Label("Write speed: ");
@@ -110,7 +101,7 @@ public class MyReadWriteSpeed extends Application {
 		// Right layout
 		VBox layout2 = new VBox(10);
 		layout2.setPadding(new Insets(20, 20, 20, 20));
-		layout2.getChildren().addAll(loading, writeResults, writeRes1, writeRes2, writeRes3, empty, readResults, readRes1, readRes2,
+		layout2.getChildren().addAll(writeResults, writeRes1, writeRes2, writeRes3, empty, readResults, readRes1, readRes2,
 				readRes3);
 
 		border.setLeft(layout);
@@ -146,6 +137,10 @@ public class MyReadWriteSpeed extends Application {
 	// Read and write testing method
 	private static void readWriteTesting() {
 		// Define local variables
+		long start = 0;
+		long stop = 0;
+		long time = 0;
+		
 		String writeResult1;
 		String writeResult2;
 		String writeResult3;
@@ -153,6 +148,8 @@ public class MyReadWriteSpeed extends Application {
 		String readResult2;
 		String readResult3;
 		double seconds;
+		
+		char[] array = new char[1024];
 
 		// Fill string with 8-bit char values
 		Arrays.fill(array, 'A');
@@ -218,8 +215,6 @@ public class MyReadWriteSpeed extends Application {
 			readRes1.setText("Time: " + readResult1 + "s");
 			readRes2.setText("File size: " + readResult2 + "MB");
 			readRes3.setText("Read speed: " + readResult3 + "MB/s");
-			
-			loading.setText("Speed test completed!");
 			
 			// Delete temporary folder
 			Directories.deleteFileAndFolder();

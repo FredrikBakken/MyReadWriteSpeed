@@ -21,7 +21,6 @@ public class Directories {
 				directory.delete();
 			}
 		}
-
 	}
 
 	// Search for all directories
